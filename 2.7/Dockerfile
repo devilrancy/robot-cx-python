@@ -27,9 +27,9 @@ RUN ldconfig
 
 # Install the packages from http://pypi.python.org
 ADD /test/test.py /code/
-ADD docker_requirements.txt /code/
+ADD requirements.txt /code/
 WORKDIR /code
-RUN pip --no-cache-dir install -r docker_requirements.txt
+RUN pip --no-cache-dir install -r requirements.txt
 
 # Run th python test to make sure the ca_Oracle is properly installed
 RUN python test.py
