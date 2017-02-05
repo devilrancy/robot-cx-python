@@ -22,8 +22,7 @@ RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.
         && unzip awscli-bundle.zip \
         && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
-# Install Ubuntu packages
-RUN apt-get update
+# Install Aliend package for the Oracle RPM Installation
 RUN apt-get install alien dpkg-dev debhelper build-essential libaio1 --assume-yes
 
 # Install oracle
