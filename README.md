@@ -20,7 +20,9 @@ A Docker image indented to use for Robot Framework Testing with cx_Oracle prebui
 * **`2.7-slim` ([2.7/slim/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/2.7/slim/Dockerfile))**
 * **`3.4` ([3.4/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/3.4/Dockerfile))**
 * **`3.4-slim` ([3.4/slim/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/3.4/slim/Dockerfile))**
-
+* **`2.7-slave` ([2.7/slave/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/2.7/slave/Dockerfile))**
+    -   This tag is useful in case ur working with the jenkins ci and u need a slave docker running out of the box.
+    
 These Images could be reduced but i am not so experienced with the docker images **feel free to create Pull Requests.**
 
 ## Available Packages
