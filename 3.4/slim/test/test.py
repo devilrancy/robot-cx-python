@@ -20,16 +20,12 @@ def hello():
     try:
         client_version = cx_Oracle.clientversion()
         print "Running with " + color.BOLD + "Oracle version v" + ".".join(str(x) for x in client_version)
-        print(color.GREENBACK +
-              color.DARKGREY +
-              color.BOLD +' Hurry! It Installed Successfully :) ' + color.BACKEND +
+        print(color.GREEN +' Hurry! It Installed Successfully :) ' + color.END +
               '\n')
     except:
-        print(color.GREENBACK +
-              color.DARKGREY +
-              color.BOLD + ' Hurry! It Installed Successfully :) ' + color.BACKEND +
+        print(color.RED + ' Oops! Build Failed :( ' + color.END +
               '\n')
-    print(color.WHITEBACK + color.BOLD +' MAINTAINER Naresh,Surisetty <nareshskyrocket@gmail.com> ' + color.BACKEND)
+    print(color.YELLOW +' MAINTAINER Naresh,Surisetty <nareshskyrocket@gmail.com> ' + color.END)
 
 if __name__ == "__main__":
     hello()

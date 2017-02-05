@@ -1,5 +1,7 @@
 FROM python:3.4-slim
 
+MAINTAINER Naresh Surisetty "nareshskyrocket@gmail.com"
+
 # Install Ubuntu packages
 RUN apt-get update
 RUN apt-get install alien dpkg-dev debhelper build-essential libaio1 --assume-yes
