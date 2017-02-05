@@ -1,10 +1,26 @@
-FROM jenkinsci/jnlp-slave
+FROM cloudbees/jnlp-slave-with-java-build-tools
 
 MAINTAINER Naresh Surisetty "nareshskyrocket@gmail.com"
 
-RUN apt-get update && apt-get install -y python && apt-get clean
-RUN apt-get update && apt-get install -y curl && apt-get clean
-RUN curl https://bootstrap.pypa.io/get-pip.py | python
+# User Root
+RUN id
+USER root
+
+RUN apt-get update && apt-get install -y \
+        python \
+        python-dev \
+        libffi-dev \
+        libssl-dev \
+        python-pip
+
+RUN pip install fabric --upgrade \
+        requests --upgrade \
+        cffi --upgrade
+
+
+RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" \
+        && unzip awscli-bundle.zip \
+        && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
 # Install Ubuntu packages
 RUN apt-get update
@@ -39,3 +55,9 @@ RUN pip --no-cache-dir install -r requirements.txt
 
 # Run th python test to make sure the ca_Oracle is properly installed
 RUN python test.py
+
+# User Jenkins
+USER jenkins
+
+ENTRYPOINT ["/opt/bin/entry_point.sh", "/usr/local/bin/jenkins-slave"]
+
