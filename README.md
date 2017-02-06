@@ -16,11 +16,11 @@ A Docker image indented to use for Robot Framework Testing with cx_Oracle prebui
 <!-- /MDTOC -->
 
 ## Supported tags
-* **`2.7` ([2.7/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/2.7/Dockerfile))**
-* **`2.7-slim` ([2.7/slim/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/2.7/slim/Dockerfile))**
-* **`3.4` ([3.4/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/3.4/Dockerfile))**
-* **`3.4-slim` ([3.4/slim/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/3.4/slim/Dockerfile))**
-* **`2.7-slave` ([2.7/slave/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/2.7/slave/Dockerfile))**
+* **`2.7` ([2.7/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/2.7/Dockerfile))** [![](https://images.microbadger.com/badges/image/devilrancy/robot-cx-python:2.7.svg)](https://microbadger.com/images/devilrancy/robot-cx-python:2.7)
+* **`2.7-slim` ([2.7/slim/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/2.7/slim/Dockerfile))** [![](https://images.microbadger.com/badges/image/devilrancy/robot-cx-python:2.7-slim.svg)](https://microbadger.com/images/devilrancy/robot-cx-python:2.7-slim)
+* **`3.4` ([3.4/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/3.4/Dockerfile))** TODO
+* **`3.4-slim` ([3.4/slim/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/3.4/slim/Dockerfile))** TODO
+* **`2.7-slave` ([2.7/slave/Dockerfile](https://github.com/devilrancy/robot-cx-python/blob/master/2.7/slave/Dockerfile))** [![](https://images.microbadger.com/badges/image/devilrancy/robot-cx-python:2.7-slave.svg)](https://microbadger.com/images/devilrancy/robot-cx-python:2.7-slave "Get your own image badge on microbadger.com")
     -   This tag is useful in case ur working with the jenkins ci and u need a slave docker running out of the box.
     
 These Images could be reduced but i am not so experienced with the docker images **feel free to create Pull Requests.**
