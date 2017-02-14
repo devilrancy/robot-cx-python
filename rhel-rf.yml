@@ -1,0 +1,81 @@
+---
+- hosts: all
+  tasks:
+    - name: ensure wget is installed
+      yum: pkg=wget state=installed
+      tags: wget
+
+    - name: download the oracle instant client basic package
+      get_url:
+        url: http://repo.dlt.psu.edu/RHEL5Workstation/x86_64/RPMS/oracle-instantclient12.1-basic-12.1.0.1.0-1.x86_64.rpm
+        
+    - name: download the oracle instant client dev package
+      get_url:
+        url: http://repo.dlt.psu.edu/RHEL5Workstation/x86_64/RPMS/oracle-instantclient12.1-devel-12.1.0.1.0-1.x86_64.rpm
+        
+    - name: install the downloaded packages
+      sudo: true
+      action: shell sudo rpm -ivh *.rpm
+
+    - name: export environmental variable LD_LIBRARY_PATH
+      shell: "echo $LD_LIBRARY_PATH"
+      environment:
+        LD_LIBRARY_PATH: /usr/lib/oracle/12.1/client64/lib/
+    
+    - name: export environmental variable ORACLE_HOME
+      shell: "echo $ORACLE_HOME"
+      environment:
+        ORACLE_HOME: /usr/lib/oracle/12.1/client64
+    
+    - name: export environmental variable PATH
+      shell: "echo $PATH"
+      environment:
+        PATH: $ORACLE_HOME/bin:$PATH
+
+    - name: download the pip python file
+      get_url:
+        url: https://bootstrap.pypa.io/get-pip.py
+
+    - name: install the python pip file downloaded to have setuptools and pip in ur machine
+      sudo: true
+      action: sudo python get-pip.py
+
+    - name: download the pip cx_Oracle RPM Modle for python
+      get_url:
+        url: https://pypi.python.org/packages/0f/52/b441ff86b4ac71bcb324045f5898021fc1421f025d77e9932733815eaf48/cx_Oracle-5.2.1-12c-py27-1.x86_64.rpm
+    
+    - name: install the cx_Oracle RPM Package downloaded
+      sudo: true
+      action: sudo rpm -ivh cx_Oracle-5.2.1-12c-py27-1.x86_64.rpm
+     
+    # Install all the required packages using pip such as robotframework, rf-selenium library, cx_Oracle, lxml, beautifulsoup, rf-requests
+
+    - name: install robotframework pip package
+      sudo: true
+      action: sudo pip install robotframework
+    
+    - name: install robotframework-requests pip packge
+      sudo: true
+      action: sudo pip install robotframework-requests
+
+    - name: install robotframework-selenium2libraray pip package
+      sudo: true
+      action: sudo pip install robotframework-selenium2libraray
+    
+    - name: install robotframework-httplibrary pip package
+      sudo: true
+      action: sudo pip install robotframework-httplibrary
+    
+    - name: install lxml pip package
+      sudo: true
+      action: sudo pip install lxml
+
+    - name: install beautifulsoup pip package
+      sudo: true
+      action: sudo pip install beautifulsoup
+
+    - name: test cx_Oracle python package
+      action: python -c "import cx_Oracle"
+
+    - name: test robotframework installation
+      action: pybot --version
